@@ -56,7 +56,6 @@ jobs:
           rm -f ./.config*
           touch ./.config
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-baidupcs-web=y
           CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-app-nfs=y
           EOF
