@@ -60,6 +60,7 @@ jobs:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-docker=y
           CONFIG_PACKAGE_luci-app-nfs=y
+          CONFIG_PACKAGE_luci-app-jd-dailybonus=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
