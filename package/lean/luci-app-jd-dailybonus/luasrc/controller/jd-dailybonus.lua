@@ -15,22 +15,16 @@ function index()
     entry({'admin', 'services', 'jd-dailybonus', 'check_update'}, call('check_update')) -- 检查更新
     entry({'admin', 'services', 'jd-dailybonus', 'qrcode'}, call('qrcode')) -- 获取二维码
     entry({'admin', 'services', 'jd-dailybonus', 'check_login'}, call('check_login')) -- 获取二维码
+    entry({'admin', 'services', 'jd-dailybonus', 'realtime_log'}, call('get_log')) -- 获取实时日志
 end
 
 -- 执行程序
 function run()
-    local e = {}
-    local uci = luci.model.uci.cursor()
-    local data = luci.http.formvalue()
-    uci:tset('jd-dailybonus', '@global[0]', data)
-    uci:commit('jd-dailybonus')
-    luci.sys.call('lua /usr/share/jd-dailybonus/gen_cookieset.lua')
-    luci.sys.call('/usr/share/jd-dailybonus/newapp.sh -r')
-    luci.sys.call('/usr/share/jd-dailybonus/newapp.sh -a')
-    e.error = 0
-
-    luci.http.prepare_content('application/json')
-    luci.http.write_json(e)
+    local running = luci.sys.call("busybox ps -w | grep JD_DailyBonus.js | grep -v grep >/dev/null") == 0
+    if not running then
+        luci.sys.call('/usr/share/jd-dailybonus/newapp.sh -r')
+    end
+    luci.http.write('')
 end
 
 --检查更新
@@ -122,4 +116,13 @@ function check_login()
 
     luci.http.prepare_content('application/json')
     luci.http.write_json(return_json)
+end
+
+function get_log()
+    local fs = require "nixio.fs"
+    local e = {}
+    e.running = luci.sys.call("busybox ps -w | grep JD_DailyBonus.js | grep -v grep >/dev/null") == 0
+    e.log = fs.readfile("/var/log/jd_dailybonus.log") or ""
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(e)
 end
