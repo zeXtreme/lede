@@ -62,6 +62,8 @@ jobs:
           # CONFIG_PACKAGE_luci-app-nfs=y
           # CONFIG_PACKAGE_luci-app-jd-dailybonus=y
           CONFIG_PACKAGE_luci-app-baidupcs-web=y
+          CONFIG_PACKAGE_luci-app-passwall=y
+          CONFIG_PACKAGE_luci-app-openclash=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
