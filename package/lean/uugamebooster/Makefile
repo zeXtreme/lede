@@ -12,15 +12,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uugamebooster
-PKG_VERSION:=v2.10.0
-PKG_RELEASE:=8
+PKG_VERSION:=v2.16.2
+PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/$(PKG_NAME)
 	SECTION:=net
 	CATEGORY:=Network
-	DEPENDS:=@(aarch64||arm||mips||mipsel||x86_64) +kmod-tun
+	DEPENDS:=@(aarch64||arm||mipsel||x86_64) +kmod-tun
 	TITLE:=NetEase UU Game Booster
 	URL:=https://uu.163.com
 endef
@@ -31,30 +31,25 @@ endef
 
 ifeq ($(ARCH),x86_64)
 	UU_ARCH:=x86_64
-	PKG_MD5SUM:=a856aebe19b9c663bdc08b257a591b40
+	PKG_MD5SUM:=568686798bf8c6e270bb5fcf2beb4a1d
 endif
 
 ifeq ($(ARCH),mipsel)
 	UU_ARCH:=mipsel
-	PKG_MD5SUM:=90e895012e5a03391a0c0f4759a4422c
-endif
-
-ifeq ($(ARCH),mips)
-	UU_ARCH:=mipsel
-	PKG_MD5SUM:=90e895012e5a03391a0c0f4759a4422c
+	PKG_MD5SUM:=614ea406e8fe6c74a815f71b11cb5636
 endif
 
 ifeq ($(ARCH),arm)
 	UU_ARCH:=arm
-	PKG_MD5SUM:=acc7e564b1718009cd2d94335ace1bcd
+	PKG_MD5SUM:=3fee6bc1ace76f9ae61977bca5fe4a6f
 endif
 
 ifeq ($(ARCH),aarch64)
 	UU_ARCH:=aarch64
-	PKG_MD5SUM:=262cc28ba07d7cf84a3f487ff4fd146c
+	PKG_MD5SUM:=ca5c5b0fddd41d0e326050d3c278ad61
 endif
 
-PKG_SOURCE_URL:=http://uu.gdl.netease.com/openwrt-$(UU_ARCH)/$(PKG_VERSION)/uu.tar.gz?
+PKG_SOURCE_URL:=http://uu.gdl.netease.com/uuplugin/openwrt-$(UU_ARCH)/$(PKG_VERSION)/uu.tar.gz?
 PKG_SOURCE:=$(PKG_NAME)-$(UU_ARCH)-$(PKG_VERSION).tar.gz
 
 STRIP:=true
