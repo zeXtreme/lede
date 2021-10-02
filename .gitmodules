@@ -1,0 +1,4 @@
+[submodule "package/lean/luci-theme-argon"]
+	path = package/lean/luci-theme-argon
+	url = https://github.com/jerrykuku/luci-theme-argon.git
+	branch = 18.06
