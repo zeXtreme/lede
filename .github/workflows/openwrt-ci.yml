@@ -66,6 +66,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-app-openclash=y
           CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-app-vssr=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
