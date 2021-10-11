@@ -5,3 +5,6 @@
 [submodule "package/lean/luci-app-vssr"]
 	path = package/lean/luci-app-vssr
 	url = https://github.com/jerrykuku/luci-app-vssr.git
+[submodule "package/lean/lua-maxminddb"]
+	path = package/lean/lua-maxminddb
+	url = https://github.com/jerrykuku/lua-maxminddb.git
