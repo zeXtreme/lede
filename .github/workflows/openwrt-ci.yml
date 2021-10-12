@@ -68,6 +68,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-vssr=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-app-argon-config=y
+          CONFIG_PACKAGE_luci-app-turboacc=n
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
