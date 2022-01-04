@@ -1,7 +1,3 @@
-[submodule "package/lean/luci-theme-argon"]
-	path = package/lean/luci-theme-argon
-	url = https://github.com/jerrykuku/luci-theme-argon.git
-	branch = 18.06
 [submodule "package/lean/luci-app-vssr"]
 	path = package/lean/luci-app-vssr
 	url = https://github.com/jerrykuku/luci-app-vssr.git
@@ -11,3 +7,7 @@
 [submodule "package/lean/luci-app-argon-config"]
 	path = package/lean/luci-app-argon-config
 	url = https://github.com/jerrykuku/luci-app-argon-config.git
+[submodule "package/lean/luci-theme-argon"]
+	path = package/lean/luci-theme-argon
+	url = https://github.com/jerrykuku/luci-theme-argon.git
+	branch = 18.06
