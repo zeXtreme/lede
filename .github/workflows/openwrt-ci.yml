@@ -69,6 +69,7 @@ jobs:
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-app-argon-config=y
           CONFIG_PACKAGE_luci-app-turboacc=n
+          CONFIG_PACKAGE_luci-app-openvpn-server=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
