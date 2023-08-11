@@ -40,6 +40,8 @@ jobs:
 
       - name: Checkout OpenWrt
         uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       - name: Update feeds
         run: |
