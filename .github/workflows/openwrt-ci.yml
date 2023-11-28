@@ -62,7 +62,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-argon-config=y
           CONFIG_PACKAGE_tailscale=y
           CONFIG_PACKAGE_tailscaled=y
-          CONFIG_PACKAGE_luci-app-dockerman=y
+          # CONFIG_PACKAGE_luci-app-dockerman=y
           CONFIG_PACKAGE_luci-app-diskman=y
           EOF
           sed -i 's/^[ \t]*//g' ./.config
