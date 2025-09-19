@@ -62,7 +62,15 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make defconfig
+        run: |
+          touch ./.config
+          cat >> .config <<EOF
+          CONFIG_TARGET_ROOTFS_EXT4FS=y
+          CONFIG_PACKAGE_ddns-scripts-cloudflare=y
+          CONFIG_PACKAGE_luci-app-openclash=y
+          CONFIG_PACKAGE_luci-app-tailscale=y
+          EOF
+          make defconfig
 
       - name: Download packages
         run: make download -j16
