@@ -73,7 +73,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-openclash=y
           CONFIG_PACKAGE_luci-app-tailscale=y
           CONFIG_PACKAGE_luci-theme-argon=y
-          CONFIG_TARGET_ROOTFS_PARTSIZE=3600
           EOF
           make defconfig
 
